@@ -79,5 +79,9 @@ opBtns.forEach(btn =>{
 
 const equalBtn = document.querySelector("#equals");
 equalBtn.addEventListener("click", ()=> {
-
+    history=""; //empties history
+    input = operate(currResult, operator, parseFloat(input)); //has final answer on main display
+    updateHistory();
+    updateDisplay();
 })
+
