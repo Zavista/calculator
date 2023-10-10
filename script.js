@@ -93,3 +93,10 @@ document.querySelector("#ac").addEventListener("click", ()=> { //clears everythi
     updateHistory();
     updateDisplay();
 });
+
+document.querySelector("#del").addEventListener("click", ()=> {
+    if (input !=""){
+        input=input.slice(0, -1); //removes last character
+        updateDisplay();
+    }
+})
