@@ -1,18 +1,18 @@
-//Basic Operations
+//Basic Operations. Added rounding to 1 decimal place
 function add(a, b){
-    return a+b;
+    return Math.round((a+b) * 10) / 10;
 }
 function subtract(a,b){
-    return a-b;
+    return Math.round((a-b) * 10) / 10;
 }
 function multiply(a,b){
-    return a*b;
+    return Math.round((a*b) * 10) / 10;
 }
 function divide(a, b){
-    return a/b;
+    return Math.round((a/b) * 10) / 10;
 }
 function mod(a,b){
-    return a%b;
+    return Math.round((a%b) * 10) / 10;
 }
 
 
@@ -35,7 +35,7 @@ function operate(a, operation, b){
 }
 
 function updateDisplay(){
-    document.querySelector("#current-input").textContent=displayInput;
+    document.querySelector("#current-input").textContent=input;
 }
 
 function updateHistory(){
@@ -46,14 +46,12 @@ let input =""; //Make input be equal to the firstNum they enter and the ensuing 
 //Its a string cause when we click a button, it would return string. We also want "1" + "1" = "11"
 let operator=""; //stores current operator
 let currResult="";
-let displayInput = "";
 let history ="";
 
 
 const numBtns = document.querySelectorAll(".number");
 numBtns.forEach(btn =>{
     btn.addEventListener("click", () => {
-        displayInput = displayInput + btn.textContent;
         input = input + btn.textContent;
         updateDisplay();
         })
@@ -65,17 +63,21 @@ const opBtns = document.querySelectorAll(".operations");
 opBtns.forEach(btn =>{
     btn.addEventListener("click", ()=>{
         if (currResult =="" && operator ==""){ //Initial case - first inputs
-            currResult = parseInt(input);
+            currResult = parseFloat(input);
             operator = btn.textContent;
         }
         else{
-            currResult = operate(currResult, operator, parseInt(input));
-            operator = btn.textContent; //updates operator
+            currResult = operate(currResult, operator, parseFloat(input));
+            operator = btn.textContent; //updates operator after using operate() with previous operator
         }
         input=""; //resets input
         history = `${currResult}  ${btn.textContent}`;
         updateHistory();
-        displayInput=""; //resets display
         updateDisplay();
     })
+})
+
+const equalBtn = document.querySelector("#equals");
+equalBtn.addEventListener("click", ()=> {
+
 })
