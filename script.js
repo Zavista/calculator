@@ -85,3 +85,11 @@ equalBtn.addEventListener("click", ()=> {
     updateDisplay();
 })
 
+document.querySelector("#ac").addEventListener("click", ()=> { //clears everything
+    history="";
+    currResult=""
+    input="";
+    operater="";
+    updateHistory();
+    updateDisplay();
+});
