@@ -65,15 +65,23 @@ opBtns.forEach(btn =>{
         if (currResult =="" && operator ==""){ //Initial case - first inputs
             currResult = parseFloat(input);
             operator = btn.textContent;
+            input=""; //resets input
+            history = `${currResult}  ${btn.textContent}`;
+            updateHistory();
+            updateDisplay();
+        }
+        else if(input==""&& btn.textContent=="-"){
+            input="-";
+            updateDisplay();
         }
         else{
             currResult = operate(currResult, operator, parseFloat(input));
             operator = btn.textContent; //updates operator after using operate() with previous operator
+            input=""; //resets input
+            history = `${currResult}  ${btn.textContent}`;
+            updateHistory();
+            updateDisplay();
         }
-        input=""; //resets input
-        history = `${currResult}  ${btn.textContent}`;
-        updateHistory();
-        updateDisplay();
     })
 })
 
