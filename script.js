@@ -70,6 +70,13 @@ opBtns.forEach(btn =>{
             updateHistory();
             updateDisplay();
         }
+        else if(operator==""){
+            operator=btn.textContent;
+            history = `${currResult}  ${btn.textContent}`;
+            updateHistory();
+            input=""; //resets input
+            updateDisplay();
+        }
         else if(input==""&& btn.textContent=="-"){
             input="-";
             updateDisplay();
@@ -88,7 +95,8 @@ opBtns.forEach(btn =>{
 const equalBtn = document.querySelector("#equals");
 equalBtn.addEventListener("click", ()=> {
     history=""; //empties history
-    input = operate(currResult, operator, parseFloat(input)); //has final answer on main display
+    currResult = input = operate(currResult, operator, parseFloat(input)); //has final answer on main display
+    operator = "";
     updateHistory();
     updateDisplay();
 })
