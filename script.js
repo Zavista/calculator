@@ -81,6 +81,10 @@ opBtns.forEach(btn =>{
             input="-";
             updateDisplay();
         }
+        else if(input=="" || input=="-"){
+            return; //do nothing if input is empty b/c that we are adding an operation
+            //and we would get ++ or -- or smthing like that
+        }
         else{
             currResult = operate(currResult, operator, parseFloat(input));
             operator = btn.textContent; //updates operator after using operate() with previous operator
@@ -90,6 +94,7 @@ opBtns.forEach(btn =>{
             updateDisplay();
         }
     })
+
 })
 
 const equalBtn = document.querySelector("#equals");
