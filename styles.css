@@ -1,4 +1,6 @@
 body{
+    margin:0;
+    padding:0;
     background-color: #faf8f2;
     min-height: 100vh;
     display: flex;
@@ -14,7 +16,7 @@ body{
     padding: 25px;
     border: 1px solid #d9b99b;
     border-radius: 10px;
-    margin-top: 4vh;
+    margin-top: 6vh;
     height: 500px;
     width: 350px;
     display:flex;
@@ -78,12 +80,11 @@ button{ /*note that these 16% and 21% are in reference to the button-container h
 }
 
 #footer{
-    background-color: #faf8f2;;
     width: 100%;
+    box-sizing: border-box; /*This caused me lots of pain! This was causing the overflow without border-box*/
     gap: 10px;
-    padding: 15px;
+    padding: 25px;
     margin-top: auto;
-    margin-bottom: 2vh;
     font-size: 20px;
     display: flex;
     align-items: center;
